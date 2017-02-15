@@ -46,7 +46,7 @@ func (f *Field) Set(x, y int, b bool) {
 // Occupied reports whether a position is occupied or not.
 // If the x or y coordinates are outside the field boundaries we act like if they were occupied.
 func (f *Field) Occupied(x, y int) bool {
-  return x < 0 || x > 7 || y < 0 || y > 7 || f.s[y][x] != 0
+  return x < 0 || x >= len(f.s) || y < 0 || y >= len(f.s) || f.s[y][x] != 0
 }
 
 // Next tries to occupy the given position. If it is not then we iterate. When we are done we print the board.
